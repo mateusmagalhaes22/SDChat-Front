@@ -1,1 +1,34 @@
-<p>mensagens works!</p>
+<div class="canvas">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="conteudo">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td class="mensagem" mat-cell *matCellDef="let element">
+        <div class="msg-text">
+          {{element.usuario}}: {{element.conteudo}}
+        </div>
+        <div class="msg-date">
+          {{element.data}}
+        </div>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-form-field>
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+</div>
