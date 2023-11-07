@@ -1,6 +1,6 @@
 import { MensagensService } from '../mensagens.service';
 import { mensagem } from './../mensagem';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-mensagens',
@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class MensagensComponent implements OnInit {
 
   constructor(private service: MensagensService){}
+
+  @ViewChild("usuario") usuario: ElementRef | undefined;
 
   mensagens: mensagem[] = [];
   dataSource = this.mensagens;
@@ -22,5 +24,7 @@ export class MensagensComponent implements OnInit {
     })
   }
 
-
+  enviar() {
+    console.log(this.usuario)
+  }
 }

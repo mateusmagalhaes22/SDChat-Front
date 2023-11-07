@@ -1,10 +1,7 @@
 <div class="canvas">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
+    <!-- Message Column -->
     <ng-container matColumnDef="conteudo">
       <th mat-header-cell *matHeaderCellDef>  </th>
       <td class="mensagem" mat-cell *matCellDef="let element">
@@ -22,13 +19,18 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-form-field>
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+  <form class="new-message-form">
+    <mat-form-field class="username-input">
+      <mat-label>Usuario</mat-label>
+      <input matInput id="usuario" name="usuario">
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
+    <mat-form-field class="message-input">
+      <mat-label></mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="enviar()">Enviar</button>
+  </form>
+
 </div>

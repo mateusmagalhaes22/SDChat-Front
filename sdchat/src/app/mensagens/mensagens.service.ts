@@ -14,4 +14,8 @@ export class MensagensService {
   list() {
     return this.http.get<mensagem[]>(this.API);
   }
+
+  post() {
+
+  }
 }
