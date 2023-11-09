@@ -1,3 +1,4 @@
+import { FormControl, FormGroup } from '@angular/forms';
 import { MensagensService } from '../mensagens.service';
 import { mensagem } from './../mensagem';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -9,9 +10,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class MensagensComponent implements OnInit {
 
-  constructor(private service: MensagensService){}
+  newMessageForm!: FormGroup;
 
-  @ViewChild("usuario") usuario: ElementRef | undefined;
+  constructor(private service: MensagensService){}
 
   mensagens: mensagem[] = [];
   dataSource = this.mensagens;
@@ -22,9 +23,17 @@ export class MensagensComponent implements OnInit {
       this.mensagens = data
       this.dataSource = this.mensagens
     })
+
+    this.newMessageForm = new FormGroup({
+      usuario: new FormControl(''),
+      conteudo: new FormControl('')
+    })
   }
 
   enviar() {
-    console.log(this.usuario)
+    var msg = this.newMessageForm.value;
+    console.log(msg);
+
+    this.service.post(msg)
   }
 }

@@ -19,15 +19,15 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <form class="new-message-form">
+  <form class="new-message-form" [formGroup]="newMessageForm">
     <mat-form-field class="username-input">
       <mat-label>Usuario</mat-label>
-      <input matInput id="usuario" name="usuario">
+      <input matInput id="usuario" formControlName="usuario">
     </mat-form-field>
 
     <mat-form-field class="message-input">
       <mat-label></mat-label>
-      <input matInput>
+      <input matInput id="conteudo" formControlName="conteudo">
     </mat-form-field>
 
     <button mat-raised-button color="primary" (click)="enviar()">Enviar</button>

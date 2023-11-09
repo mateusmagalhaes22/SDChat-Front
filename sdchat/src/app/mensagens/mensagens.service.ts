@@ -15,7 +15,8 @@ export class MensagensService {
     return this.http.get<mensagem[]>(this.API);
   }
 
-  post() {
-
+  post(mensagem: mensagem) {
+    console.log(mensagem);
+    return this.http.post(this.API, mensagem);
   }
 }
