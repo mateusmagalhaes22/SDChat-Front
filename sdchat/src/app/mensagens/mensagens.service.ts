@@ -17,6 +17,6 @@ export class MensagensService {
 
   post(mensagem: mensagem) {
     console.log(mensagem);
-    return this.http.post(this.API, mensagem);
+    this.http.post(this.API, mensagem).subscribe(r=>{});
   }
 }

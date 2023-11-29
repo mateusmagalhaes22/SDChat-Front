@@ -34,6 +34,8 @@ export class MensagensComponent implements OnInit {
     var msg = this.newMessageForm.value;
     console.log(msg);
 
-    this.service.post(msg)
+    this.service.post(msg);
+
+    window.location.reload();
   }
 }
